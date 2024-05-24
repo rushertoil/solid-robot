@@ -95,11 +95,3 @@ header nav ul li a:hover {
     font-size: 1.2em;
     margin: 10px 0 0;
 }
-.bloc video {
-    
-    position: fixed; /* Positionne la vidéo de manière fixe */    
-    top: 0;     
-    left: 0;     
-    width: 100%; /* Assurez-vous que la vidéo couvre toute la largeur */    
-    height: auto; /* Hauteur automatique pour conserver les proportions d'origine */    
-}

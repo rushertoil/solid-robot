@@ -31,11 +31,9 @@ $result = $connexion->query($sql);
         <div class="logo">
             <img src="image.png" alt="Car Logo">
         </div>
-        <div class="bloc">
-            <video autoplay="autoplay" muted="" loop="infinite" src="nigzz.mp4"></video>
-        </div>
         <nav>
             <ul>
+                <li><a href="html.php">Accueille</a></li>
                 <li><a href="php2.php">Stock de véhicule</a></li>
                 <li><a href="#">Ajouter véhicule</a></li>
                 <li><a href="#">Ajouter client</a></li>

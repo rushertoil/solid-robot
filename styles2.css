@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Style global */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,48 +6,70 @@ body {
     padding: 0;
 }
 
+/* En-tête */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    background-color: #ffffff;
+    color: #fff;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centrer horizontalement */
+    padding: 10px 20px;
+}
+
+header .logo {
+    margin-bottom: 10px; /* Espace entre le logo et la nav */
 }
 
 header .logo img {
     height: 50px;
-    margin-left: 20px;
+}
+
+header nav {
+    width: 100%;
 }
 
 header nav ul {
     list-style: none;
-    display: flex;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    background-color: #444; /* Ajouter un fond à la barre de navigation */
+    padding: 10px;
 }
 
 header nav ul li {
-    margin-right: 20px;
+    margin: 0 10px;
 }
 
 header nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 5px 10px;
     background-color: #555;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 header nav ul li a:hover {
-    background-color: #777;
+    background-color: #666;
 }
 
-h1 {
+/* Barre de recherche */
+.search-bar {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 10px;
+}
+
+/* Style des cartes de voitures */
 .cars {
     display: flex;
     flex-wrap: wrap;
@@ -56,26 +77,21 @@ h1 {
 }
 
 .car {
-    background-color: white;
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 5px;
     margin: 10px;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     width: 200px;
-}
-
-.car h2 {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.car p {
-    font-size: 14px;
-    color: #666;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .car img {
     max-width: 100%;
-    border-radius: 5px;
+    height: auto;
+}
+
+.car h2 {
+    font-size: 1.2em;
+    margin: 10px 0 0;
 }
