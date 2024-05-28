@@ -36,13 +36,17 @@ $result = $connexion->query($sql);
                 <li><a href="html.php">Accueille</a></li>
                 <li><a href="php2.php">Stock de véhicule</a></li>
                 <li><a href="#">Ajouter véhicule</a></li>
-                <li><a href="#">Ajouter client</a></li>
+                <li><a href="php3.php">Ajouter client</a></li>
                 <li><a href="#">Historique</a></li>
             </ul>
         </nav>
     </header>
-    <h1>Liste des Voitures Disponibles</h1>
-
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="NIGZ2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
     <div class="cars">
         <?php
         if ($result->rowCount() > 0) {
@@ -58,6 +62,8 @@ $result = $connexion->query($sql);
             echo "Aucune voiture disponible.";
         }
         ?>
+    </video>
+</div>
     </div>
 </body>
 </html>

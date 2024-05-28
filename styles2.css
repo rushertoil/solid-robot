@@ -70,28 +70,51 @@ header nav ul li a:hover {
 }
 
 /* Style des cartes de voitures */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Assurez-vous que la vidéo est en arrière-plan */
+}
+
+.video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Assurez-vous que la vidéo est en arrière-plan */
+}
+
+/* Styles pour les voitures */
 .cars {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 100px; /* Ajoutez de l'espace pour ne pas cacher les voitures */
+    position: relative;
+    z-index: 1; /* Assurez-vous que les voitures sont au-dessus de la vidéo */
 }
 
 .car {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin: 10px;
-    padding: 20px;
+    margin: 20px;
     text-align: center;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1; /* Assurez-vous que les voitures sont au-dessus de la vidéo */
 }
 
 .car img {
     max-width: 100%;
-    height: auto;
+    border-radius: 10px;
 }
-
 .car h2 {
-    font-size: 1.2em;
-    margin: 10px 0 0;
+    color: white; /* Couleur du texte en blanc */
+}
+.car p {
+    color: white; /* Couleur du texte en blanc */
 }
