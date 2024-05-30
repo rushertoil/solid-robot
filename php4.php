@@ -1,16 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gestion des Voitures</title>
-    <link rel="stylesheet" type="text/css" href="styles4.css">
+    <meta charset="UTF-8">
+    <title>Gestion des Voitures et Modèles</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Gestion des Voitures</h1>
-        </div>
-    </header>
-    <div class="container main">
+    <h2>Ajouter un Nouveau Modèle de Voiture</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="action" value="ajouter_modele">
+        <label for="libelle">Libellé :</label>
+        <input type="text" id="libelle" name="libelle" required>
+
+        <label for="id_categorie">Catégorie :</label>
+        <input type="text" id="id_categorie" name="id_categorie" required>
+
+        <label for="id_marque">Marque :</label>
+        <input type="text" id="id_marque" name="id_marque" required>
+
+        <label for="image">Image :</label>
+        <input type="file" id="image" name="image" required>
+
+        <input type="submit" value="Ajouter">
+    </form>
+
+    <h2>Ajouter une Nouvelle Voiture</h2>
+    <form action="" method="post">
+        <input type="hidden" name="action" value="ajouter_voiture">
+        <label for="immatriculation">Immatriculation :</label>
+        <input type="text" id="immatriculation" name="immatriculation" required>
+
+        <label for="compteur">Compteur :</label>
+        <input type="number" id="compteur" name="compteur" required>
+
+        <label for="id_modele">ID Modèle :</label>
+        <input type="number" id="id_modele" name="id_modele" required>
+
+        <input type="submit" value="Ajouter">
+    </form>
+
+    <h2>Modifier une Voiture</h2>
+    <form action="" method="post">
+        <input type="hidden" name="action" value="modifier_voiture">
+        <label for="id_voiture">ID Voiture :</label>
+        <input type="number" id="id_voiture" name="id_voiture" required>
+
+        <label for="immatriculation">Immatriculation :</label>
+        <input type="text" id="immatriculation" name="immatriculation">
+
+        <label for="compteur">Compteur :</label>
+        <input type="number" id="compteur" name="compteur">
+
+        <label for="id_modele">ID Modèle :</label>
+        <input type="number" id="id_modele" name="id_modele">
+
+        <input type="submit" value="Modifier">
+    </form>
+
+    <h2>Supprimer une Voiture</h2>
+    <form action="" method="post">
+        <input type="hidden" name="action" value="supprimer_voiture">
+        <label for="id_voiture">ID Voiture :</label>
+        <input type="number" id="id_voiture" name="id_voiture" required>
+
+        <input type="submit" value="Supprimer">
+    </form>
 
     <?php
     try {
@@ -21,157 +74,27 @@
         exit();
     }
 
-    // Récupérer les modèles de voitures
-    $stmt = $connexion->query("SELECT id_modele, libelle FROM modele");
-    $modeles = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $action = $_POST['action'];
 
-    // Récupérer les catégories
-    $stmt = $connexion->query("SELECT id_categorie, libelle FROM categorie");
-    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        switch ($action) {
+            case 'ajouter_modele':
+                // Traitement pour ajouter un nouveau modèle
+                break;
 
-    // Récupérer les marques
-    $stmt = $connexion->query("SELECT id_marque, libelle FROM marque");
-    $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            case 'ajouter_voiture':
+                // Traitement pour ajouter une nouvelle voiture
+                break;
 
-    // Ajout d'un nouveau modèle
-    if (isset($_POST['add_model'])) {
-        $libelle = $_POST['libelle'];
-        $id_categorie = $_POST['id_categorie'];
-        $id_marque = $_POST['id_marque'];
-        $image = $_POST['image'];
+            case 'modifier_voiture':
+                // Traitement pour modifier une voiture existante
+                break;
 
-        $sql = "INSERT INTO modele (libelle, id_categorie, id_marque, image) VALUES (:libelle, :id_categorie, :id_marque, :image)";
-        $stmt = $connexion->prepare($sql);
-        $stmt->bindParam(':libelle', $libelle);
-        $stmt->bindParam(':id_categorie', $id_categorie);
-        $stmt->bindParam(':id_marque', $id_marque);
-        $stmt->bindParam(':image', $image);
-
-        if ($stmt->execute()) {
-            echo "<div class='message success'>Nouveau modèle ajouté avec succès</div>";
-            // Refresh the models list
-            $stmt = $connexion->query("SELECT id_modele, libelle FROM modele");
-            $modeles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } else {
-            echo "<div class='message error'>Erreur lors de l'ajout du modèle</div>";
-        }
-    }
-
-    // Ajout d'une nouvelle voiture
-    if (isset($_POST['add'])) {
-        $immatriculation = $_POST['immatriculation'];
-        $compteur = $_POST['compteur'];
-        $id_modele = $_POST['id_modele'];
-
-        $sql = "INSERT INTO voiture (immatriculation, compteur, id_modele) VALUES (:immatriculation, :compteur, :id_modele)";
-        $stmt = $connexion->prepare($sql);
-        $stmt->bindParam(':immatriculation', $immatriculation);
-        $stmt->bindParam(':compteur', $compteur);
-        $stmt->bindParam(':id_modele', $id_modele);
-
-        if ($stmt->execute()) {
-            echo "<div class='message success'>Nouvelle voiture ajoutée avec succès</div>";
-        } else {
-            echo "<div class='message error'>Erreur lors de l'ajout de la voiture</div>";
-        }
-    }
-
-    // Modification d'une voiture existante
-    if (isset($_POST['edit'])) {
-        $id_voiture = $_POST['id_voiture'];
-        $immatriculation = $_POST['immatriculation'];
-        $compteur = $_POST['compteur'];
-        $id_modele = $_POST['id_modele'];
-
-        $sql = "UPDATE voiture SET immatriculation = :immatriculation, compteur = :compteur, id_modele = :id_modele WHERE id_voiture = :id_voiture";
-        $stmt = $connexion->prepare($sql);
-        $stmt->bindParam(':id_voiture', $id_voiture);
-        $stmt->bindParam(':immatriculation', $immatriculation);
-        $stmt->bindParam(':compteur', $compteur);
-        $stmt->bindParam(':id_modele', $id_modele);
-
-        if ($stmt->execute()) {
-            echo "<div class='message success'>Voiture mise à jour avec succès</div>";
-        } else {
-            echo "<div class='message error'>Erreur lors de la mise à jour de la voiture</div>";
-        }
-    }
-
-    // Suppression d'une voiture
-    if (isset($_POST['delete'])) {
-        $id_voiture = $_POST['id_voiture'];
-
-        $sql = "DELETE FROM voiture WHERE id_voiture = :id_voiture";
-        $stmt = $connexion->prepare($sql);
-        $stmt->bindParam(':id_voiture', $id_voiture);
-
-        if ($stmt->execute()) {
-            echo "<div class='message success'>Voiture supprimée avec succès</div>";
-        } else {
-            echo "<div class='message error'>Erreur lors de la suppression de la voiture</div>";
+            case 'supprimer_voiture':
+                // Traitement pour supprimer une voiture
+                break;
         }
     }
     ?>
-
-    <h2>Ajouter un nouveau modèle</h2>
-    <form method="post">
-        <label>Libellé:</label><br>
-        <input type="text" name="libelle" required><br>
-        <label>Catégorie:</label><br>
-        <select name="id_categorie" required>
-            <?php foreach ($categories as $categorie) : ?>
-                <option value="<?= $categorie['id_categorie'] ?>"><?= $categorie['libelle'] ?></option>
-            <?php endforeach; ?>
-        </select><br>
-        <label>Marque:</label><br>
-        <select name="id_marque" required>
-            <?php foreach ($marques as $marque) : ?>
-                <option value="<?= $marque['id_marque'] ?>"><?= $marque['libelle'] ?></option>
-            <?php endforeach; ?>
-        </select><br>
-        <label>Image:</label><br>
-        <input type="text" name="image" required><br><br>
-        <input type="submit" name="add_model" value="Ajouter Modèle">
-    </form>
-
-    <h2>Ajouter une nouvelle voiture</h2>
-    <form method="post">
-        <label>Immatriculation:</label><br>
-        <input type="text" name="immatriculation" required><br>
-        <label>Compteur:</label><br>
-        <input type="number" name="compteur" required><br>
-        <label>Modèle:</label><br>
-        <select name="id_modele" required>
-            <?php foreach ($modeles as $modele) : ?>
-                <option value="<?= $modele['id_modele'] ?>"><?= $modele['libelle'] ?></option>
-            <?php endforeach; ?>
-        </select><br><br>
-        <input type="submit" name="add" value="Ajouter">
-    </form>
-
-    <h2>Modifier une voiture existante</h2>
-    <form method="post">
-        <label>ID Voiture:</label><br>
-        <input type="number" name="id_voiture" required><br>
-        <label>Immatriculation:</label><br>
-        <input type="text" name="immatriculation" required><br>
-        <label>Compteur:</label><br>
-        <input type="number" name="compteur" required><br>
-        <label>Modèle:</label><br>
-        <select name="id_modele" required>
-            <?php foreach ($modeles as $modele) : ?>
-                <option value="<?= $modele['id_modele'] ?>"><?= $modele['libelle'] ?></option>
-            <?php endforeach; ?>
-        </select><br><br>
-        <input type="submit" name="edit" value="Modifier">
-    </form>
-
-    <h2>Supprimer une voiture existante</h2>
-    <form method="post">
-        <label>ID Voiture:</label><br>
-        <input type="number" name="id_voiture" required><br><br>
-        <input type="submit" name="delete" value="Supprimer">
-    </form>
-    </div>
 </body>
 </html>
