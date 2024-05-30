@@ -40,7 +40,7 @@ $result = $connexion->query($sql);
     </div>
     <div class="video-background">
         <video autoplay muted loop>
-            <source src="NIGZ2.mp4" type="video/mp4">
+            <source src="videogit.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
