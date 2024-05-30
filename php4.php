@@ -6,6 +6,20 @@
 </head>
 <body>
     <header>
+    <header>
+        <div class="logo">
+            <img src="image.png" alt="Car Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="html.php">Accueille</a></li>
+                <li><a href="php2.php">Stock de véhicule</a></li>
+                <li><a href="php4.php">Ajouter véhicule</a></li>
+                <li><a href="php3.php">Ajouter client</a></li>
+                <li><a href="#">Historique</a></li>
+            </ul>
+        </nav>
+    </header>
         <div class="container">
             <h1>Gestion des Voitures</h1>
         </div>
@@ -39,13 +53,17 @@
         $id_categorie = $_POST['id_categorie'];
         $id_marque = $_POST['id_marque'];
         $image = $_POST['image'];
+        $id_modele = $_POST['id_modele'];
 
-        $sql = "INSERT INTO modele (libelle, id_categorie, id_marque, image) VALUES (:libelle, :id_categorie, :id_marque, :image)";
+        $sql = "INSERT INTO modele (id_modele, libelle, id_categorie, id_marque, image) VALUES (:id_modele, :libelle, :id_categorie, :id_marque, :image)";
         $stmt = $connexion->prepare($sql);
+        $stmt->bindParam(':id_modele', $id_modele);
         $stmt->bindParam(':libelle', $libelle);
         $stmt->bindParam(':id_categorie', $id_categorie);
         $stmt->bindParam(':id_marque', $id_marque);
         $stmt->bindParam(':image', $image);
+        
+
 
         if ($stmt->execute()) {
             echo "<div class='message success'>Nouveau modèle ajouté avec succès</div>";
@@ -82,6 +100,7 @@
         $immatriculation = $_POST['immatriculation'];
         $compteur = $_POST['compteur'];
         $id_modele = $_POST['id_modele'];
+        
 
         $sql = "UPDATE voiture SET immatriculation = :immatriculation, compteur = :compteur, id_modele = :id_modele WHERE id_voiture = :id_voiture";
         $stmt = $connexion->prepare($sql);
@@ -131,6 +150,8 @@
         </select><br>
         <label>Image:</label><br>
         <input type="text" name="image" required><br><br>
+        <label for="id_modele">ID Modèle :</label>
+        <input type="number" id="id_modele" name="id_modele" required>
         <input type="submit" name="add_model" value="Ajouter Modèle">
     </form>
 

@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 <div class="container">
         <h1>Ajouter un Client</h1>
-        <form method="post" action="ajouter_client.php">
+        <form method="post" action="php3.php">
             <div class="input-group">
                 <label for="nom">Nom de famille:</label>
                 <input type="text" id="nom" name="nom" required>
