@@ -28,7 +28,7 @@ $result = $connexion->query($sql);
             <ul>
                 <li><a href="html.php">Accueille</a></li>
                 <li><a href="php2.php">Stock de véhicule</a></li>
-                <li><a href="#">Ajouter véhicule</a></li>
+                <li><a href="php4.php">Ajouter véhicule</a></li>
                 <li><a href="php3.php">Ajouter client</a></li>
                 <li><a href="#">Historique</a></li>
             </ul>
@@ -40,7 +40,7 @@ $result = $connexion->query($sql);
     </div>
     <div class="video-background">
         <video autoplay muted loop>
-            <source src="NIGZ2.mp4" type="video/mp4">
+            <source src="cars.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
