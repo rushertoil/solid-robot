@@ -6,7 +6,6 @@ try {
     echo "<div class='message error'>Erreur de connexion : " . $e->getMessage() . "</div>";
     exit();
 }
-
 if (isset($_POST['add_client'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
