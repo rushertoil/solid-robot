@@ -20,17 +20,17 @@ $result = $connexion->query($sql);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+<header>
         <div class="logo">
             <img src="image.png" alt="Car Logo">
         </div>
         <nav>
             <ul>
-                <li><a href="html.php">Accueille</a></li>
+                <li><a href="html.php">Accueil</a></li>
                 <li><a href="php2.php">Stock de véhicule</a></li>
                 <li><a href="php4.php">Ajouter véhicule</a></li>
                 <li><a href="php3.php">Ajouter client</a></li>
-                <li><a href="#">Historique</a></li>
+                <li><a href="php5.php">Historique</a></li>
             </ul>
         </nav>
     </header>
