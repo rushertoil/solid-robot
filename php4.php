@@ -11,7 +11,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="html.php">Accueil</a></li>
+                <li><a href="php1.php">Accueil</a></li>
                 <li><a href="php2.php">Stock de véhicule</a></li>
                 <li><a href="php4.php">Ajouter véhicule</a></li>
                 <li><a href="php3.php">Ajouter client</a></li>

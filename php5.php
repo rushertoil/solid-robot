@@ -24,21 +24,21 @@ try {
     <title>Voitures Louées</title>
     <link rel="stylesheet" href="styles5.css">
 </head>
-<header>
-    <div class="logo">
-        <img src="image.png" alt="Car Logo">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="html.php">Accueil</a></li>
-            <li><a href="php2.php">Stock de véhicule</a></li>
-            <li><a href="php4.php">Ajouter véhicule</a></li>
-            <li><a href="php3.php">Ajouter client</a></li>
-            <li><a href="php5.php">Historique</a></li>
-        </ul>
-    </nav>
-</header>
 <body>
+<header>
+        <div class="logo">
+            <img src="image.png" alt="Car Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="php1.php">Accueil</a></li>
+                <li><a href="php2.php">Stock de véhicule</a></li>
+                <li><a href="php4.php">Ajouter véhicule</a></li>
+                <li><a href="php3.php">Ajouter client</a></li>
+                <li><a href="php5.php">Historique</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <h1>Voitures Louées</h1>
         <table>

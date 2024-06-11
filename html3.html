@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles3.css">
+    <title>Add Client</title>
+</head>
+<body>
+    <header>
+            <div class="logo">
+                <img src="image.png" alt="Car Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="php1.php">Accueil</a></li>
+                    <li><a href="php2.php">Stock de véhicule</a></li>
+                    <li><a href="php4.php">Ajouter véhicule</a></li>
+                    <li><a href="php3.php">Ajouter client</a></li>
+                    <li><a href="php5.php">Historique</a></li>
+                </ul>
+            </nav>
+        </header>
+ 
+<h2>Add New Client</h2>
+<form action="php3.2.php.php" method="POST">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom"><br><br>
+    <label for="prenom">Prenom:</label>
+    <input type="text" id="prenom" name="prenom"><br><br>
+    <label for="adresse">Adresse:</label>
+    <input type="text" id="adresse" name="adresse"><br><br>
+    <label for="type">Type de Client:</label>
+    <select id="type" name="id_type_de_client">
+        <option value="1">Particulier</option>
+        <option value="2">Entreprise</option>
+        <option value="3">Administration</option>
+        <option value="4">Association</option>
+        <option value="5">Longue duree</option>
+    </select><br><br>
+    <input type="submit" value="Add Client">
+</form>
+ 
+</body>
+</html>
+ 
