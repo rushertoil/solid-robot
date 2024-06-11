@@ -33,8 +33,8 @@ header nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* Centrer horizontalement */
-    background-color: #444; /* Ajouter un fond à la barre de navigation */
+    justify-content: center; 
+    background-color: #444; 
     padding: 10px;
 }
 
@@ -54,7 +54,6 @@ header nav ul li a:hover {
     background-color: #666;
 }
 
-/* Barre de recherche */
 .search-bar {
     text-align: center;
     margin: 20px 0;
@@ -76,7 +75,7 @@ header nav ul li a:hover {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: -1; /* Assurez-vous que la vidéo est en arrière-plan */
+    z-index: -1; 
 }
 
 .video-background video {
@@ -87,24 +86,23 @@ header nav ul li a:hover {
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: -1; /* Assurez-vous que la vidéo est en arrière-plan */
+    z-index: -1; 
 }
 
-/* Styles pour les voitures */
 .cars {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 100px; /* Ajoutez de l'espace pour ne pas cacher les voitures */
+    padding-top: 100px; 
     position: relative;
-    z-index: 1; /* Assurez-vous que les voitures sont au-dessus de la vidéo */
+    z-index: 1; 
 }
 
 .car {
     margin: 20px;
     text-align: center;
     position: relative;
-    z-index: 1; /* Assurez-vous que les voitures sont au-dessus de la vidéo */
+    z-index: 1; 
 }
 
 .car img {
@@ -112,8 +110,8 @@ header nav ul li a:hover {
     border-radius: 10px;
 }
 .car h2 {
-    color: white; /* Couleur du texte en blanc */
+    color: white; 
 }
 .car p {
-    color: white; /* Couleur du texte en blanc */
+    color: white; 
 }

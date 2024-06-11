@@ -6,7 +6,6 @@ try {
     exit();
 }
 
-// Récupérer toutes les voitures de la base de données
 $sql = "SELECT * FROM modele";
 $result = $connexion->query($sql);
 ?>

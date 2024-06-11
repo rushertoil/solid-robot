@@ -7,7 +7,6 @@ try {
     exit();
 }
 
-// Récupérer les voitures qui ne sont pas actuellement louées
 $sql = "
     SELECT v.id_voiture, v.immatriculation, v.compteur, m.libelle as modele, m.image
     FROM Voiture v

@@ -1,22 +1,9 @@
-------------------------------------------------------------
---        Script Postgre 
-------------------------------------------------------------
-
-
-
-------------------------------------------------------------
--- Table: Type_de_client
-------------------------------------------------------------
 CREATE TABLE public.Type_de_client(
 	id_type_de_client   INT  NOT NULL ,
 	libelle             VARCHAR (100) NOT NULL  ,
 	CONSTRAINT Type_de_client_PK PRIMARY KEY (id_type_de_client)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Client
-------------------------------------------------------------
 CREATE TABLE public.Client(
 	id_client           INT  NOT NULL ,
 	nom                 VARCHAR (50) NOT NULL ,
@@ -28,10 +15,6 @@ CREATE TABLE public.Client(
 	,CONSTRAINT Client_Type_de_client_FK FOREIGN KEY (id_type_de_client) REFERENCES public.Type_de_client(id_type_de_client)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Option
-------------------------------------------------------------
 CREATE TABLE public.Option(
 	id_option   INT  NOT NULL ,
 	libelle     VARCHAR (100) NOT NULL ,
@@ -39,10 +22,6 @@ CREATE TABLE public.Option(
 	CONSTRAINT Option_PK PRIMARY KEY (id_option)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Categorie
-------------------------------------------------------------
 CREATE TABLE public.Categorie(
 	id_categorie   VARCHAR (1) NOT NULL ,
 	libelle        VARCHAR (50) NOT NULL ,
@@ -50,20 +29,12 @@ CREATE TABLE public.Categorie(
 	CONSTRAINT Categorie_PK PRIMARY KEY (id_categorie)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Marque
-------------------------------------------------------------
 CREATE TABLE public.Marque(
 	id_marque   INT  NOT NULL ,
 	libelle     VARCHAR (50) NOT NULL  ,
 	CONSTRAINT Marque_PK PRIMARY KEY (id_marque)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Modele
-------------------------------------------------------------
 CREATE TABLE public.Modele(
 	id_modele      INT  NOT NULL ,
 	libelle        VARCHAR (50) NOT NULL ,
@@ -76,10 +47,6 @@ CREATE TABLE public.Modele(
 	,CONSTRAINT Modele_Marque0_FK FOREIGN KEY (id_marque) REFERENCES public.Marque(id_marque)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Voiture
-------------------------------------------------------------
 CREATE TABLE public.Voiture(
 	id_voiture        INT  NOT NULL ,
 	immatriculation   VARCHAR (50) NOT NULL ,
@@ -90,10 +57,6 @@ CREATE TABLE public.Voiture(
 	,CONSTRAINT Voiture_Modele_FK FOREIGN KEY (id_modele) REFERENCES public.Modele(id_modele)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: Location
-------------------------------------------------------------
 CREATE TABLE public.Location(
 	id_location      INT  NOT NULL ,
 	date_debut       DATE  NOT NULL ,
@@ -108,10 +71,6 @@ CREATE TABLE public.Location(
 	,CONSTRAINT Location_Voiture0_FK FOREIGN KEY (id_voiture) REFERENCES public.Voiture(id_voiture)
 )WITHOUT OIDS;
 
-
-------------------------------------------------------------
--- Table: choix
-------------------------------------------------------------
 CREATE TABLE public.choix(
 	id_option     INT  NOT NULL ,
 	id_location   INT  NOT NULL  ,

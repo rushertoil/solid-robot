@@ -34,19 +34,16 @@
         exit();
     }
 
-    // Récupérer les modèles de voitures
+
     $stmt = $connexion->query("SELECT id_modele, libelle FROM modele");
     $modeles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les catégories
     $stmt = $connexion->query("SELECT id_categorie, libelle FROM categorie");
     $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Récupérer les marques
     $stmt = $connexion->query("SELECT id_marque, libelle FROM marque");
     $marques = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Ajout d'un nouveau modèle
     if (isset($_POST['add_model'])) {
         $libelle = $_POST['libelle'];
         $id_categorie = $_POST['id_categorie'];
@@ -66,7 +63,6 @@
 
         if ($stmt->execute()) {
             echo "<div class='message success'>Nouveau modèle ajouté avec succès</div>";
-            // Refresh the models list
             $stmt = $connexion->query("SELECT id_modele, libelle FROM modele");
             $modeles = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else {
@@ -74,7 +70,6 @@
         }
     }
 
-    // Ajout d'une nouvelle voiture
     if (isset($_POST['add'])) {
         $immatriculation = $_POST['immatriculation'];
         $compteur = $_POST['compteur'];
@@ -93,7 +88,6 @@
         }
     }
 
-    // Modification d'une voiture existante
     if (isset($_POST['edit'])) {
         $id_voiture = $_POST['id_voiture'];
         $immatriculation = $_POST['immatriculation'];
@@ -115,7 +109,6 @@
         }
     }
 
-    // Suppression d'une voiture
     if (isset($_POST['delete'])) {
         $id_voiture = $_POST['id_voiture'];
 

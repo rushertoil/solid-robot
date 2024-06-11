@@ -8,13 +8,13 @@ header {
     background-color: #ffffff;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Empile les éléments verticalement */
-    align-items: center; /* Centrer horizontalement */
+    flex-direction: column; 
+    align-items: center; 
     padding: 10px 20px;
 }
 
 header .logo {
-    margin-bottom: 10px; /* Espace entre le logo et la nav */
+    margin-bottom: 10px; 
 }
 
 header .logo img {
@@ -30,8 +30,8 @@ header nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center; /* Centrer horizontalement */
-    background-color: #444; /* Ajouter un fond à la barre de navigation */
+    justify-content: center; 
+    background-color: #444; 
     padding: 10px;
 }
 

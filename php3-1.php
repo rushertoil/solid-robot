@@ -1,5 +1,4 @@
 <?php
-// Connexion à la base de données
 $host = 'localhost';
 $dbname = 'locauto';
 $username = 'root';
@@ -13,7 +12,6 @@ try {
     exit();
 }
  
-// Fetch clients
 $query = "SELECT id_client, nom, prenom, adresse, id_type_de_client FROM Client";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
