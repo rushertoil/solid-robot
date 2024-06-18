@@ -52,37 +52,7 @@ header nav ul li a:hover {
     background-color: #666;
 }
 
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
 
-.search-container label {
-    margin-right: 10px;
-    font-size: 1.2em;
-}
-
-.search-container input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.search-container button:hover {
-    background-color: #555;
-}
 
 table {
     width: 80%;
@@ -156,7 +126,7 @@ form {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 200%);
     
 }
 h2 {
@@ -196,3 +166,8 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #218838;
 }
+div .client {
+    text-align: center;
+
+}
+

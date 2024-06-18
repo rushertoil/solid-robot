@@ -18,7 +18,7 @@ $stmt->execute();
 $clients = $stmt->fetchAll(PDO::FETCH_ASSOC);
  
 foreach ($clients as $client) {
-    echo "<tr onclick=\"window.location.href='client_history.php?id_client=" . htmlspecialchars($client['id_client']) . "'\">";
+    echo "<tr onclick=\"window.location.href='php3.3.php.php?id_client=" . htmlspecialchars($client['id_client']) . "'\">";
     echo "<td>" . htmlspecialchars($client['id_client']) . "</td>";
     echo "<td>" . htmlspecialchars($client['nom']) . "</td>";
     echo "<td>" . htmlspecialchars($client['prenom']) . "</td>";
