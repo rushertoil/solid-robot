@@ -24,7 +24,7 @@
 
     <div class="client">
         <?php
-        // Connexion à la base de données
+        
         $host = 'localhost';
         $dbname = 'locauto';
         $username = 'root';
@@ -55,7 +55,6 @@
                     echo "</table>";
                     echo "</div>";
 
-                    // Historique de location
                     $query_location = "SELECT * FROM Location WHERE id_client = :id_client";
                     $stmt_location = $pdo->prepare($query_location);
                     $stmt_location->bindParam(':id_client', $id_client);
@@ -90,14 +89,12 @@
                         echo "<p>Aucun historique de location trouvé pour ce client.</p>";
                     }
 
-                    // Formulaire pour ajouter une nouvelle location
                     echo "<h2>Ajouter une nouvelle location</h2>";
                     echo "<form method='post' action='ajouter-location.php'>";
                     echo "<input type='hidden' name='id_client' value='" . htmlspecialchars($client['id_client']) . "'>";
                     echo "<label for='id_voiture'>Choisir une voiture :</label>";
                     echo "<select id='id_voiture' name='id_voiture'>";
                     
-                    // Requête pour récupérer toutes les voitures disponibles
                     $query_cars = "SELECT id_voiture, immatriculation FROM Voiture";
                     $stmt_cars = $pdo->prepare($query_cars);
                     $stmt_cars->execute();
@@ -107,14 +104,10 @@
                         echo "<option value='" . htmlspecialchars($car['id_voiture']) . "'>" . htmlspecialchars($car['immatriculation']) . "</option>";
                     }
                     echo "</select>";
-                    
-                    // Formulaire pour la date de début et de fin
                     echo "<label for='date_debut'>Date de début :</label>";
                     echo "<input type='date' id='date_debut' name='date_debut' required>";
                     echo "<label for='date_fin'>Date de fin :</label>";
                     echo "<input type='date' id='date_fin' name='date_fin' required>";
-                    
-                    // Bouton pour soumettre le formulaire
                     echo "<button type='submit'>Louer la voiture</button>";
                     echo "</form>";
                 } else {
